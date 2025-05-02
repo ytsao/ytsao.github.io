@@ -37,6 +37,7 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#news">News</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -46,7 +47,7 @@
         <section class="hero" id="about">
             <div class="hero-content">
                 <h1>Hello, I'm <span class="highlight">Yi-Nung Tsao</span></h1>
-                <p class="tagline">Developer, Researcher, Creator</p>
+                <p class="tagline">PhD student & Runner</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn primary">View My Work</a>
                     <a href="#contact" class="btn secondary">Contact Me</a>
@@ -59,54 +60,99 @@
             </div>
         </section>
         
+        <section class="section" id="news">
+            <h2 class="section-title">Latest News</h2>
+            <div class="news-container">
+                <div class="news-item">
+                    <div class="news-date">
+                        <span class="month">May</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Papering next coming research work</h3>
+                        <p>I am preparing the paper for submitting to SAS conference.</p>
+                        <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">
+                        <span class="month">October</span>
+                        <span class="year">2024</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>My First Full Marathon</h3>
+                        <p>I finished my first full marathon in Frankfurt (Time: 3:59:38).</p>
+                        <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-date">
+                        <span class="month">June</span>
+                        <span class="year">2024</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>Lattice Theory Workshop</h3>
+                        <p>I gave a talk on "Introduction to Neural Network Verification" at University of Luxembourg.</p>
+                        <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <section class="section" id="projects">
             <h2 class="section-title">My Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Project One</h3>
-                    <p>A short description of this amazing project and what technologies were used.</p>
+                    <div class="project-image" style="background-image: url('images/neural-network.png');"></div>
+                    <h3>Neural Network Verification</h3>
+                    <p>Neural network verification is the process of formally analyzing neural networks to ensure they behave correctly and safely under all possible inputs, particularly in safety-critical applications.</p>
                     <a href="#" class="btn small">View Project</a>
                 </div>
                 <div class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Project Two</h3>
-                    <p>A short description of this amazing project and what technologies were used.</p>
+                    <div class="project-image" style="background-image: url('images/lattice-theory.png');"></div>
+                    <h3>Lattice Theory</h3>
+                    <p>Lattice theory provides a foundational framework for order theory, logic, and applications in computer science and mathematics.</p>
                     <a href="#" class="btn small">View Project</a>
                 </div>
                 <div class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Project Three</h3>
-                    <p>A short description of this amazing project and what technologies were used.</p>
+                    <div class="project-image" style="background-image: url('images/abstract-interpretation.png');"></div>
+                    <h3>Abstract Interpretation</h3>
+                    <p>Abstract interpretation is a theory of sound approximation of program behaviors used in static analysis to detect potential errors without executing the program.</p>
                     <a href="#" class="btn small">View Project</a>
                 </div>
             </div>
         </section>
         
         <section class="section" id="contact">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Contact</h2>
             <div class="contact-container">
                 <div class="contact-info">
                     <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>email@example.com</span>
+                        <span>yi-nung.tsao@uni.lu</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>City, Country</span>
+                        <span>Esch-sur-Alzette, Luxembourg</span>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" action="https://formsubmit.co/yi-nung.tsao@uni.lu" method="POST">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                     </div>
+                    <!-- Optional: Redirect to a thank you page -->
+                    <input type="hidden" name="_next" value="https://ytsao.github.io/thanks.html">
+                    <!-- Optional: Prevent spam -->
+                    <input type="hidden" name="_captcha" value="true">
                     <button type="submit" class="btn primary">Send Message</button>
                 </form>
             </div>
