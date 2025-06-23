@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 <script>
     // Intersection Observer for scroll animations
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const sections = document.querySelectorAll('.section');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -24,12 +26,13 @@
         }, {
             threshold: 0.1
         });
-        
+
         sections.forEach(section => {
             observer.observe(section);
         });
     });
 </script>
+
 <body>
     <div class="container">
         <header>
@@ -43,7 +46,7 @@
                 </ul>
             </nav>
         </header>
-        
+
         <section class="hero" id="about">
             <div class="hero-content">
                 <h1>Hello, I'm <span class="highlight">Yi-Nung Tsao</span></h1>
@@ -59,7 +62,7 @@
                 <a href="https://www.strava.com/athletes/123889882" title="Strava"><i class="fab fa-strava"></i></a>
             </div>
         </section>
-        
+
         <section class="section" id="news">
             <h2 class="section-title">Latest News</h2>
             <div class="news-container">
@@ -74,7 +77,7 @@
                         <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="news-item">
                     <div class="news-date">
                         <span class="month">October</span>
@@ -86,7 +89,7 @@
                         <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="news-item">
                     <div class="news-date">
                         <span class="month">June</span>
@@ -94,42 +97,49 @@
                     </div>
                     <div class="news-content">
                         <h3>Lattice Theory Workshop</h3>
-                        <p>I gave a talk on "Introduction to Neural Network Verification" at University of Luxembourg.</p>
+                        <p>I gave a talk on "Introduction to Neural Network Verification" at University of Luxembourg.
+                        </p>
                         <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section class="section" id="projects">
             <h2 class="section-title">My Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image" style="background-image: url('images/neural-network.png');"></div>
                     <h3>Neural Network Verification</h3>
-                    <p>Neural network verification is the process of formally analyzing neural networks to ensure they behave correctly and safely under all possible inputs, particularly in safety-critical applications.</p>
+                    <p>Neural network verification is the process of formally analyzing neural networks to ensure they
+                        behave correctly and safely under all possible inputs, particularly in safety-critical
+                        applications.</p>
                     <a href="#" class="btn small">View Project</a>
                 </div>
                 <div class="project-card">
                     <div class="project-image" style="background-image: url('images/lattice-theory.png');"></div>
                     <h3>Lattice Theory</h3>
-                    <p>Lattice theory provides a foundational framework for order theory, logic, and applications in computer science and mathematics.</p>
+                    <p>Lattice theory provides a foundational framework for order theory, logic, and applications in
+                        computer science and mathematics.</p>
                     <a href="#" class="btn small">View Project</a>
                 </div>
                 <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/abstract-interpretation.png');"></div>
+                    <div class="project-image" style="background-image: url('images/abstract-interpretation.png');">
+                    </div>
                     <h3>Abstract Interpretation</h3>
-                    <p>Abstract interpretation is a theory of sound approximation of program behaviors used in static analysis to detect potential errors without executing the program.</p>
+                    <p>Abstract interpretation is a theory of sound approximation of program behaviors used in static
+                        analysis to detect potential errors without executing the program.</p>
                     <a href="#" class="btn small">View Project</a>
                 </div>
             </div>
         </section>
-        
+
         <section class="section" id="contact">
             <h2 class="section-title">Contact</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                    <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your
+                        vision.</p>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>yi-nung.tsao@uni.lu</span>
@@ -139,30 +149,15 @@
                         <span>Esch-sur-Alzette, Luxembourg</span>
                     </div>
                 </div>
-                <form class="contact-form" action="https://formsubmit.co/yi-nung.tsao@uni.lu" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <!-- Optional: Redirect to a thank you page -->
-                    <input type="hidden" name="_next" value="https://ytsao.github.io/thanks.html">
-                    <!-- Optional: Prevent spam -->
-                    <input type="hidden" name="_captcha" value="true">
-                    <button type="submit" class="btn primary">Send Message</button>
-                </form>
             </div>
         </section>
     </div>
-    
+
     <footer>
         <div class="container">
             <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
         </div>
     </footer>
 </body>
+
 </html>
