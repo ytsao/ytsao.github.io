@@ -4,13 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yi-Nung Tsao - Personal Website</title>
+    <title>Yi-Nung Tsao</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <!-- Force scroll to top on page load -->
+    <script>
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+        });
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+    </script>
 </head>
 <script>
     // Intersection Observer for scroll animations
@@ -34,16 +47,19 @@
 </script>
 
 <body>
+    <script>
+        window.scrollTo(0, 0);
+    </script>
+
     <div class="container">
         <header>
             <div class="logo">YN</div>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">Home</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -51,9 +67,8 @@
         <section class="hero" id="about">
             <div class="hero-content">
                 <h1>Hello, I'm <span class="highlight">Yi-Nung Tsao</span></h1>
-                <p class="tagline">PhD student & Runner</p>
+                <p class="tagline">A PhD student & Trail Runner</p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn primary">View My Work</a>
                     <a href="#contact" class="btn secondary">Contact Me</a>
                 </div>
             </div>
@@ -65,54 +80,47 @@
         </section>
 
         <section class="section" id="news">
-            <h2 class="section-title">Latest News</h2>
+            <h2 class="section-title">News</h2>
             <div class="news-container">
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="month">May</span>
-                        <span class="year">2025</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>Papering next coming research work</h3>
-                        <p>I am preparing the paper for submitting to SAS conference.</p>
-                        <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="month">October</span>
-                        <span class="year">2024</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>My First Full Marathon</h3>
-                        <p>I finished my first full marathon in Frankfurt (Time: 3:59:38).</p>
-                        <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="month">June</span>
-                        <span class="year">2024</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>Lattice Theory Workshop</h3>
-                        <p>I gave a talk on "Introduction to Neural Network Verification" at University of Luxembourg.
-                        </p>
-                        <a href="#" class="news-link">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                <ul class="simple-news-list">
+                    <li><span class="news-bullet">📝</span><strong>Current:</strong>I'm preparing my first publication🔥</li>
+                    <li><span class="news-bullet">🛬</span><strong>3 November 2025:</strong>Landing at lattice-land.</li>
+                    <li><span class="news-bullet">🏃</span><strong>19 October 2025:</strong>NEW PR in full marathon, Amsterdam, Netherland (42.195 km, Time: 3:59:21).</li>
+                    <li><span class="news-bullet">📝</span><strong>Winter 2025:</strong>I was a TA in Lattice Theory for Parallel Programming at University of Luxembourg.</li>
+                    <li><span class="news-bullet">🏃</span><strong>9-16 August 2025:</strong>Summer Running Self-challange Project - 100 km in a week, Annecy, France.</li>
+                    <li><span class="news-bullet">📝</span><strong>August 2025:</strong>I was a sub-reviewer in ICTAI 2025.</li>
+                    <li><span class="news-bullet">🏃</span><strong>12 July 2025:</strong>Lënster Trail, Luxembourg (15 km, 300 D+, Time: 1:25:25).</li>
+                    <li><span class="news-bullet">🍀</span> <strong>8 July 2025:</strong> I passed my CET 2.</li>
+                    <li><span class="news-bullet">🏃</span><strong>31 May 2025:</strong>ING half marathon, did not perform well (21.0975 km, Time: 2:01:46).</li>
+                    <li><span class="news-bullet">🏃</span> <strong>21 April 2025:</strong>I ran DKV Urban Trail again in Luxembourg (34 km, 830 D+, Time: 4:06:11).</li>
+                    <li><span class="news-bullet">🏃</span><strong>22 March 2025:</strong>Birthday Project - Donut Infinite Trail, Tawain, 5 Loops (34.9 km, 2812 D+, 12:10:00).</li>
+                    <li><span class="news-bullet">🏃</span><strong>22 December 2024:</strong>First ultra trail, 3-Länner-Trail, Luxembourg, but DNF (43.51/51 km, 1100/1400 D+, Time: 7:17:08).</li>
+                    <li><span class="news-bullet">🏃</span><strong>27 October 2024:</strong>I finished my first full marathon in 4 hours in Frankfurt, Germany (42.195 km, Time: 3:59:38).</li>
+                    <li><span class="news-bullet">🏃</span><strong>29 September 2024:</strong>NEW PR in half marathon, Route du vin, Luxembourg (21.0975 km, Time: 1:41:55).</li>
+                    <li><span class="news-bullet">📝</span><strong>Winter 2024:</strong>I was a TA in Lattice Theory for Parallel Programming at University of Luxembourg.</li>
+                    <li><span class="news-bullet">🏃</span><strong>14 September 2024:</strong>I ran UTML (35 km, 1100 D+, 5:11:57).</li>
+                    <li><span class="news-bullet">🏃</span><strong>3 September 2024:</strong>Summer Running Self-challange Project - Lipari Island Tour (37.29km, 1167 D+, Time: 6:36:46).</li>
+                    <li><span class="news-bullet">📝</span><strong>1-7 September 2024:</strong>I attended Lipari Summer School on Abstract Interpretation, Italy.</li>
+                    <li><span class="news-bullet">📝</span><strong>8-12 July 2024:</strong>I attended Summer School on Verification Technology, Systems & Applications in Belval, Luxembourg.</li>
+                    <li><span class="news-bullet">🏃</span><strong>30 June 2024:</strong>Trail des Mines (14 km, 250 D+, Time: 1:26:25).</li>
+                    <li><span class="news-bullet">🎤</span><strong>17-21 June 2024:</strong>I was a speaker about "Introduction to Neural Network Verification by Abstract Interpretation" in Abstract Interpretation Workshop in Luxembourg.</li>
+                    <li><span class="news-bullet">🍀</span><strong>10 June 2024:</strong> I passed my CET 1.</li>
+                    <li><span class="news-bullet">🏃</span><strong>21 April 2024:</strong>I ran DKV Urban Trail in Luxembourg (34 km, 830 D+, Time: 4:01:04).</li>
+                    <li><span class="news-bullet">📝</span><strong>25-29 March 2024:</strong> I attended Winter School on Constraint Programming in Aussois, France.</li>
+                    <li><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first trail running race (Trail' Malling, France) with my beautiful white road shoes (24 km, 600 D+, Time: 3:59:12).</li>
+                    <li><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first running race (Esch Kulturlaf) in Europe (10 km, Time: 1:11:32).</li>
+                    <li><span class="news-bullet">🎉</span><strong>1 August 2023:</strong>I started my PhD journey in PCOG team at University of Luxembourg.</li>
+                </ul>
             </div>
         </section>
 
         <section class="section" id="blog">
-            <h2 class="section-title">Blog & Lecture Notes</h2>
+            <h2 class="section-title">Blog & Notes</h2>
             <div class="blog-container">
                 <div class="blog-post">
                     <div class="blog-meta">
                         <span class="blog-date">December 8, 2024</span>
-                        <span class="blog-category">Tutorial</span>
+                        <span class="blog-category">MyShare</span>
                     </div>
                     <h3 class="blog-title">PhD Journey</h3>
                     <p class="blog-excerpt">Share my PhD life at University of Luxembourg.</p>
@@ -172,14 +180,14 @@
                     <p>Neural network verification is the process of formally analyzing neural networks to ensure they
                         behave correctly and safely under all possible inputs, particularly in safety-critical
                         applications.</p>
-                    <a href="#" class="btn small">View Project</a>
+                    <a href="https://github.com/ytsao/survey-neural-network-verification" class="btn small">View Project</a>
                 </div>
                 <div class="project-card">
                     <div class="project-image" style="background-image: url('images/lattice-theory.png');"></div>
                     <h3>Lattice Theory</h3>
                     <p>Lattice theory provides a foundational framework for order theory, logic, and applications in
                         computer science and mathematics.</p>
-                    <a href="#" class="btn small">View Project</a>
+                    <a href="https://github.com/ytsao/lattice-gym" class="btn small">View Project</a>
                 </div>
                 <div class="project-card">
                     <div class="project-image" style="background-image: url('images/abstract-interpretation.png');">
@@ -187,7 +195,7 @@
                     <h3>Abstract Interpretation</h3>
                     <p>Abstract interpretation is a theory of sound approximation of program behaviors used in static
                         analysis to detect potential errors without executing the program.</p>
-                    <a href="#" class="btn small">View Project</a>
+                    <a href="https://github.com/ytsao/ai-gym" class="btn small">View Project</a>
                 </div>
             </div>
         </section>
@@ -201,10 +209,6 @@
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>yi-nung.tsao@uni.lu</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Esch-sur-Alzette, Luxembourg</span>
                     </div>
                 </div>
             </div>

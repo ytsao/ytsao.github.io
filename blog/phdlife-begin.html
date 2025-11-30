@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Journey - Yi-Nung Tsao</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">YN</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#news">News</a></li>
+                    <li><a href="../index.html#blog">Blog</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article class="blog-article">
+            <div class="article-header">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                <h1>PhD Journey - 申請</h1>
+                <div class="article-meta">
+                    <span>January 20, 2025</span>
+                    <span>•</span>
+                    <span>Abstract Interpretation Series - Part 1</span>
+                    <span>•</span>
+                    <span>20 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2>What is Abstract Interpretation?</h2>
+                <p>Abstract interpretation is a theory of sound approximation of program behaviors. It provides a
+                    mathematical framework for analyzing programs statically, allowing us to reason about all possible
+                    executions of a program without actually running it.</p>
+
+                <h2>Why Do We Need It?</h2>
+                <p>Static analysis of programs faces the fundamental challenge of the halting problem - we cannot, in
+                    general, decide whether a program will terminate or what values its variables will have at runtime.
+                    Abstract interpretation provides a way to overcome this limitation by computing safe approximations.
+                </p>
+
+                <h2>Key Concepts</h2>
+                <ul>
+                    <li><strong>Concrete Semantics:</strong> The actual behavior of the program</li>
+                    <li><strong>Abstract Semantics:</strong> A simplified view that captures essential properties</li>
+                    <li><strong>Abstraction Function:</strong> Maps concrete states to abstract states</li>
+                    <li><strong>Concretization Function:</strong> Maps abstract states back to sets of concrete states
+                    </li>
+                </ul>
+
+                <h2>Example: Sign Analysis</h2>
+                <p>Consider a simple abstract domain for tracking the sign of integer variables. Instead of tracking
+                    exact values, we use the abstract domain {⊥, -, 0, +, ⊤} where:</p>
+                <ul>
+                    <li>⊥ represents the empty set (unreachable)</li>
+                    <li>- represents negative numbers</li>
+                    <li>0 represents zero</li>
+                    <li>+ represents positive numbers</li>
+                    <li>⊤ represents all integers</li>
+                </ul>
+
+                <h2>Next Steps</h2>
+                <p>In the next part of this series, we'll explore the mathematical foundations of abstract
+                    interpretation, focusing on lattice theory and how it provides the structure for abstract domains.
+                </p>
+            </div>
+
+            <!-- Series Navigation -->
+            <div class="series-navigation">
+                <h3>PhD Journey</h3>
+                <div class="series-links">
+                    <a href="abstract-interpretation-intro.html" class="series-link current">Part 1: Introduction</a>
+                    <a href="abstract-interpretation-lattices.html" class="series-link">Part 2: Lattices and Domains</a>
+                    <a href="abstract-interpretation-fixpoints.html" class="series-link">Part 3: Fixpoint Theory</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
