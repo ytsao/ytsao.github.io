@@ -1219,3 +1219,307 @@ html {
         transform: translateY(0px);
     }
 }
+
+/* =======================================================================
+   Research-style theme overrides
+   (Appended at EOF so they take precedence over the older, more “decorative”
+   styling without needing to rewrite every earlier selector.)
+   ======================================================================= */
+
+:root {
+    --primary-color: #0b4a6f; /* deep teal */
+    --secondary-color: #1d4ed8; /* blue accent */
+
+    --dark-color: #0f172a; /* slate-900 */
+    --light-color: #ffffff;
+    --light-bg: #f6f7fb; /* soft paper */
+    --grey-color: #475569; /* slate-600 */
+
+    --border-color: #e5e7eb; /* gray-200 */
+    --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.06);
+    --shadow-hover: 0 10px 30px rgba(15, 23, 42, 0.10);
+
+    --transition: 160ms ease;
+    --radius: 16px;
+
+    color-scheme: light;
+}
+
+body {
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji',
+        'Segoe UI Emoji';
+    color: var(--dark-color);
+    background: var(--light-bg);
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Accessibility: visible focus */
+:focus-visible {
+    outline: 3px solid rgba(29, 78, 216, 0.30);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+/* Header / Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(246, 247, 251, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    animation: none !important;
+    color: var(--primary-color);
+}
+
+nav ul {
+    gap: 18px;
+}
+
+nav ul li {
+    margin-left: 0;
+    animation: none !important;
+}
+
+nav ul li a {
+    animation: none !important;
+    font-weight: 650;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero */
+.hero {
+    height: auto;
+    min-height: 62vh;
+    padding: 60px 0 28px;
+}
+
+.hero-content h1 {
+    animation: slideInLeft 0.8s ease-out !important;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+}
+
+.tagline {
+    animation: slideInRight 0.8s ease-out !important;
+    color: var(--grey-color);
+    font-weight: 550;
+}
+
+.cta-buttons {
+    animation: none !important;
+}
+
+.social-links a {
+    animation: float 3s infinite !important;
+}
+
+/* Buttons (remove “pulse/float” hover effects) */
+.btn {
+    animation: none !important;
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition), transform var(--transition),
+        box-shadow var(--transition);
+    transform: none;
+    box-shadow: none;
+}
+
+.btn:hover {
+    animation: none !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: #fff;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Sections */
+.section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    scroll-margin-top: 90px; /* for sticky header anchor jumps */
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 44px;
+}
+
+.section-title::after {
+    width: 56px;
+    height: 3px;
+    bottom: -12px;
+}
+
+/* Cards / surfaces */
+.project-card,
+.news-item,
+.blog-post,
+.post-card,
+.experience-item,
+.publication-item,
+.series-navigation {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    border-radius: var(--radius);
+}
+
+.project-card:hover,
+.news-item:hover,
+.blog-post:hover,
+.post-card:hover,
+.experience-item:hover,
+.publication-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Project images */
+.project-image {
+    background-color: transparent;
+}
+
+/* Blog listing controls */
+.filter-btn {
+    border-radius: 9999px;
+    border: 2px solid var(--primary-color);
+    background-color: #fff;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Typography: keep content readable */
+.article-content {
+    color: var(--dark-color);
+}
+
+.article-content p {
+    color: var(--dark-color);
+}
+
+.article-content h2,
+.article-content h3 {
+    color: var(--dark-color);
+    font-weight: 800;
+}
+
+.article-content ul,
+.article-content ol {
+    padding-left: 1.25rem;
+}
+
+.article-content li {
+    margin-bottom: 8px;
+}
+
+/* Forms */
+.form-group input,
+.form-group textarea,
+.contact-form input,
+.contact-form textarea,
+input,
+textarea {
+    border-color: var(--border-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.contact-form input:focus,
+.contact-form textarea:focus,
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-color: #0b1220;
+    color: #e5e7eb;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Reduced motion: keep it calm */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =======================================================================
+   Homepage layout tweaks (intro + compact one-line news list)
+   ======================================================================= */
+
+.intro-container {
+    max-width: 980px;
+    margin: 0 auto;
+    color: var(--dark-color);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Make the news block wider */
+.news-container {
+    max-width: 1400px !important;
+}
+
+.simple-news-list {
+    max-width: 1400px !important;
+    padding: 0 28px !important;
+}
+
+/* Keep each news item on one line (truncate if needed) */
+.simple-news-list li {
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #e5e7eb;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.simple-news-list li:hover {
+    transform: none;
+    color: var(--primary-color);
+}

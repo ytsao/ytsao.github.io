@@ -341,3 +341,192 @@ html {
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
 }
+
+/* =======================================================================
+   Research-style theme overrides (appended)
+   ======================================================================= */
+
+:root {
+    --primary-color: #0b4a6f;
+    --secondary-color: #1d4ed8;
+
+    --dark-color: #0f172a;
+    --light-color: #ffffff;
+    --light-bg: #f6f7fb;
+    --grey-color: #475569;
+
+    --border-color: #e5e7eb;
+    --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.06);
+    --shadow-hover: 0 10px 30px rgba(15, 23, 42, 0.10);
+
+    --transition: 160ms ease;
+    --radius: 16px;
+
+    color-scheme: light;
+}
+
+body {
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji',
+        'Segoe UI Emoji';
+    color: var(--dark-color);
+    background: var(--light-bg);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+:focus-visible {
+    outline: 3px solid rgba(29, 78, 216, 0.30);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(246, 247, 251, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    animation: none !important;
+    color: var(--primary-color);
+}
+
+nav ul {
+    gap: 18px;
+}
+
+nav ul li {
+    margin-left: 0;
+    animation: none !important;
+}
+
+nav ul li a {
+    animation: none !important;
+    font-weight: 650;
+}
+
+.hero {
+    height: auto;
+    min-height: 62vh;
+    padding: 60px 0 28px;
+}
+
+.hero-content h1 {
+    animation: slideInLeft 0.8s ease-out !important;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+}
+
+.tagline {
+    animation: slideInRight 0.8s ease-out !important;
+    color: var(--grey-color);
+    font-weight: 550;
+}
+
+.cta-buttons {
+    animation: none !important;
+}
+
+.social-links a {
+    animation: float 3s infinite !important;
+}
+
+.btn {
+    animation: none !important;
+    transform: none;
+    box-shadow: none;
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition), transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn:hover {
+    animation: none !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: #fff;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    scroll-margin-top: 90px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 44px;
+}
+
+.section-title::after {
+    width: 56px;
+    height: 3px;
+    bottom: -12px;
+}
+
+.project-card,
+.news-item,
+.blog-post,
+.post-card,
+.experience-item,
+.publication-item,
+.series-navigation {
+    background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    border-radius: var(--radius);
+}
+
+.project-card:hover,
+.news-item:hover,
+.blog-post:hover,
+.post-card:hover,
+.experience-item:hover,
+.publication-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.project-image {
+    background-color: transparent;
+}
+
+footer {
+    background-color: #0b1220;
+    color: #e5e7eb;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
