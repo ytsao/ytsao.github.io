@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lattices and Domains - Yi-Nung Tsao</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">YN</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#about">Home</a></li>
+                    <li><a href="../index.html#intro">Introduction</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="../index.html#news">News</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article class="blog-article">
+            <div class="article-header">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                <h1>Lattices and Domains</h1>
+                <div class="article-meta">
+                    <span>January 25, 2025</span>
+                    <span>•</span>
+                    <span>Abstract Interpretation Series - Part 2</span>
+                    <span>•</span>
+                    <span>18 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2>The Need for Mathematical Structure</h2>
+                <p>Abstract interpretation requires a solid mathematical foundation to ensure soundness and efficiency. Lattice theory provides exactly this foundation by defining the structure of abstract domains and operations on them.</p>
+
+                <h2>What is a Lattice?</h2>
+                <p>A lattice is a partially ordered set (poset) where every pair of elements has both a least upper bound (supremum) and a greatest lower bound (infimum).</p>
+
+                <p>Formally, a lattice is a tuple (D, ⊑, ⊔, ⊓) where:</p>
+                <ul>
+                    <li>D is a set of elements (the abstract domain)</li>
+                    <li>⊑ is a partial order relation</li>
+                    <li>⊔ is the join operation (supremum/least upper bound)</li>
+                    <li>⊓ is the meet operation (infimum/greatest lower bound)</li>
+                </ul>
+
+                <h2>Properties of Lattices</h2>
+                <h3>Reflexivity</h3>
+                <p>For all x ∈ D: x ⊑ x</p>
+
+                <h3>Transitivity</h3>
+                <p>For all x, y, z ∈ D: if x ⊑ y and y ⊑ z, then x ⊑ z</p>
+
+                <h3>Antisymmetry</h3>
+                <p>For all x, y ∈ D: if x ⊑ y and y ⊑ x, then x = y</p>
+
+                <h3>Join Operation</h3>
+                <p>x ⊔ y is the smallest element that is ⊒ both x and y</p>
+
+                <h3>Meet Operation</h3>
+                <p>x ⊓ y is the largest element that is ⊑ both x and y</p>
+
+                <h2>Complete Lattices</h2>
+                <p>A complete lattice is a lattice where every subset has both a supremum and infimum. This is important for abstract interpretation because it guarantees that fixpoint computations will terminate.</p>
+
+                <h2>Example: Sign Analysis Lattice</h2>
+                <p>Recall the sign analysis domain from Part 1: {⊥, −, 0, +, ⊤}</p>
+
+                <p>This forms a lattice with the partial order:</p>
+                <ul>
+                    <li>⊥ is the bottom element (least element)</li>
+                    <li>−, 0, + are incomparable to each other</li>
+                    <li>⊤ is the top element (greatest element)</li>
+                </ul>
+
+                <p>The operations are:</p>
+                <ul>
+                    <li>x ⊓ y gives the most specific sign</li>
+                    <li>x ⊔ y gives the most general sign that covers both</li>
+                </ul>
+
+                <h2>Common Abstract Domains</h2>
+                <h3>Interval Domain</h3>
+                <p>Tracks ranges of values: [L, U] where L is lower bound, U is upper bound</p>
+
+                <h3>Polyhedra Domain</h3>
+                <p>Tracks linear inequalities over variables</p>
+
+                <h3>Octagons Domain</h3>
+                <p>Efficient subdomain of polyhedra for octagonal constraints</p>
+
+                <h3>Congruence Domain</h3>
+                <p>Tracks congruence classes modulo some value</p>
+
+                <h2>Monotonicity and Soundness</h2>
+                <p>For abstract interpretation to be sound, abstract operations must be monotone: if x ⊑ x', then f(x) ⊑ f(x'). This ensures that our analysis is consistent with the order structure.</p>
+
+                <h2>The Galois Connection</h2>
+                <p>The relationship between concrete and abstract domains is formalized through Galois connections. A Galois connection consists of:</p>
+                <ul>
+                    <li>An abstraction function α: Concrete → Abstract</li>
+                    <li>A concretization function γ: Abstract → Concrete</li>
+                </ul>
+
+                <p>These functions must satisfy: α(γ(a)) ⊑ a for all abstract values a</p>
+
+                <h2>Practical Implementation</h2>
+                <p>When implementing abstract interpreters, lattices are typically represented as:</p>
+                <ul>
+                    <li>Directed acyclic graphs (DAGs)</li>
+                    <li>Bit vectors for finite domains</li>
+                    <li>Constraint systems for infinite domains</li>
+                </ul>
+
+                <h2>Next Steps</h2>
+                <p>In Part 3, we'll explore fixpoint theory and how it enables computing abstract interpretations efficiently through iteration and convergence analysis.</p>
+            </div>
+
+            <!-- Series Navigation -->
+            <div class="series-navigation">
+                <h3>Abstract Interpretation Series</h3>
+                <div class="series-links">
+                    <a href="abstract-interpretation-intro.html" class="series-link">Part 1: Introduction</a>
+                    <a href="abstract-interpretation-lattices.html" class="series-link current">Part 2: Lattices and Domains</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+                <a href="feed.xml" class="rss-link" title="Subscribe to RSS Feed">
+                    <i class="fas fa-rss"></i> RSS Feed
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

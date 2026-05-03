@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Yi-Nung Tsao's Research Blog</title>
+        <link>https://ytsao.github.io/blog/</link>
+        <description>PhD research blog covering topics in program analysis and verification</description>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 12 Feb 2025 00:00:00 GMT</lastBuildDate>
+        
+        <item>
+            <title>SMT Solvers and Theory Extensions</title>
+            <link>https://ytsao.github.io/blog/constraint-solving-smt.html</link>
+            <guid isPermaLink="true">https://ytsao.github.io/blog/constraint-solving-smt.html</guid>
+            <pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
+            <category>Constraint Solving</category>
+            <description>Discover how SMT solvers extend SAT with reasoning about theories like linear arithmetic.</description>
+            <content:encoded><![CDATA[SMT (Satisfiability Modulo Theories) solvers extend SAT solving to handle mathematical domains like integers, reals, arrays, and bitvectors. This post covers the common theories, solver architecture, and practical applications.]]></content:encoded>
+        </item>
+
+        <item>
+            <title>SAT Solvers and Boolean Satisfiability</title>
+            <link>https://ytsao.github.io/blog/constraint-solving-sat.html</link>
+            <guid isPermaLink="true">https://ytsao.github.io/blog/constraint-solving-sat.html</guid>
+            <pubDate>Wed, 05 Feb 2025 00:00:00 GMT</pubDate>
+            <category>Constraint Solving</category>
+            <description>Learn about SAT solving algorithms and their applications in software verification.</description>
+            <content:encoded><![CDATA[The Boolean Satisfiability Problem (SAT) is NP-complete but practically solvable. This post covers SAT algorithms, practical solvers like MiniSat and Glucose, and real-world applications.]]></content:encoded>
+        </item>
+
+        <item>
+            <title>Introduction to Neural Network Verification</title>
+            <link>https://ytsao.github.io/blog/neural-network-verification.html</link>
+            <guid isPermaLink="true">https://ytsao.github.io/blog/neural-network-verification.html</guid>
+            <pubDate>Sun, 15 Jan 2025 00:00:00 GMT</pubDate>
+            <category>Neural Networks</category>
+            <description>A comprehensive introduction to the fundamentals of neural network verification.</description>
+            <content:encoded><![CDATA[Neural network verification aims to ensure the robustness and correctness of neural network models. This is an introduction to the field and its key challenges.]]></content:encoded>
+        </item>
+
+        <item>
+            <title>Lattices and Domains</title>
+            <link>https://ytsao.github.io/blog/abstract-interpretation-lattices.html</link>
+            <guid isPermaLink="true">https://ytsao.github.io/blog/abstract-interpretation-lattices.html</guid>
+            <pubDate>Fri, 25 Jan 2025 00:00:00 GMT</pubDate>
+            <category>Abstract Interpretation</category>
+            <description>Understanding lattice structures and how they form the mathematical foundation of abstract interpretation.</description>
+            <content:encoded><![CDATA[Lattices provide the mathematical structure for abstract domains in program analysis. This post covers lattice theory and its application to abstract interpretation.]]></content:encoded>
+        </item>
+
+        <item>
+            <title>Introduction to Abstract Interpretation</title>
+            <link>https://ytsao.github.io/blog/abstract-interpretation-intro.html</link>
+            <guid isPermaLink="true">https://ytsao.github.io/blog/abstract-interpretation-intro.html</guid>
+            <pubDate>Sun, 20 Jan 2025 00:00:00 GMT</pubDate>
+            <category>Abstract Interpretation</category>
+            <description>Learn the foundational concepts of abstract interpretation and why it's crucial for program analysis.</description>
+            <content:encoded><![CDATA[Abstract interpretation is a theory of sound approximation of program behaviors. This post introduces key concepts and provides examples of abstract domains.]]></content:encoded>
+        </item>
+
+    </channel>
+</rss>

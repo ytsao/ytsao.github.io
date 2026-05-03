@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Solvers and Boolean Satisfiability - Yi-Nung Tsao</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">YN</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#about">Home</a></li>
+                    <li><a href="../index.html#intro">Introduction</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="../index.html#news">News</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article class="blog-article">
+            <div class="article-header">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                <h1>SAT Solvers and Boolean Satisfiability</h1>
+                <div class="article-meta">
+                    <span>February 5, 2025</span>
+                    <span>•</span>
+                    <span>Constraint Solving Series - Part 1</span>
+                    <span>•</span>
+                    <span>18 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2>What is Boolean Satisfiability?</h2>
+                <p>The Boolean Satisfiability Problem (SAT) asks: Given a Boolean formula in propositional logic, does there exist an assignment of truth values to its variables that makes the formula evaluate to true?</p>
+
+                <p>For example, consider the formula: (x₁ ∨ ¬x₂) ∧ (x₂ ∨ x₃) ∧ (¬x₁ ∨ ¬x₃)</p>
+                <p>Can we find values for x₁, x₂, x₃ that satisfy all three clauses simultaneously?</p>
+
+                <h2>Why SAT Matters</h2>
+                <p>Despite being NP-complete (believed to be computationally hard), SAT solving has become incredibly practical because:</p>
+                <ul>
+                    <li><strong>Wide Applicability:</strong> Many problems can be encoded as SAT</li>
+                    <li><strong>Modern Solvers:</strong> State-of-the-art solvers can handle millions of variables</li>
+                    <li><strong>Average-Case Performance:</strong> Most instances are solvable quickly despite worst-case hardness</li>
+                    <li><strong>Hardware Verification:</strong> Essential for checking chip designs</li>
+                </ul>
+
+                <h2>Normal Forms for SAT</h2>
+                <h3>Conjunctive Normal Form (CNF)</h3>
+                <p>CNF is the standard form for SAT solvers. It's a conjunction (AND) of clauses, where each clause is a disjunction (OR) of literals.</p>
+                <p>Example: (a ∨ ¬b ∨ c) ∧ (¬a ∨ d) ∧ (b ∨ ¬d)</p>
+                <p>Each clause is called a k-SAT clause if it contains k literals. 3-SAT is NP-complete, while 2-SAT is solvable in polynomial time.</p>
+
+                <h2>Key SAT Solving Algorithms</h2>
+                <h3>DPLL Algorithm (Davis-Putnam-Logemann-Loveland)</h3>
+                <p>The foundation of modern SAT solvers, DPLL uses:</p>
+                <ul>
+                    <li><strong>Unit Propagation:</strong> If a clause has only one unassigned literal, assign it to satisfy the clause</li>
+                    <li><strong>Pure Literal Elimination:</strong> If a literal appears only in one polarity, assign it to true</li>
+                    <li><strong>Backtracking:</strong> When a conflict occurs, backtrack to explore other branches</li>
+                </ul>
+
+                <h3>Conflict-Driven Clause Learning (CDCL)</h3>
+                <p>Modern SAT solvers enhance DPLL with:</p>
+                <ul>
+                    <li><strong>Clause Learning:</strong> Learn new clauses from conflicts to prune search space</li>
+                    <li><strong>Non-Chronological Backtracking:</strong> Jump back multiple levels when conflicts are detected</li>
+                    <li><strong>Restart Heuristics:</strong> Periodically restart with learned clauses</li>
+                    <li><strong>Variable Selection Heuristics:</strong> Choose branch variables intelligently</li>
+                </ul>
+
+                <h2>Practical SAT Solvers</h2>
+                <h3>Widely Used Solvers</h3>
+                <ul>
+                    <li><strong>MiniSat:</strong> Influential open-source solver, basis for many modern solvers</li>
+                    <li><strong>Glucose:</strong> Focus on clause learning and restart strategies</li>
+                    <li><strong>Lingeling:</strong> High performance, competitive in SAT competitions</li>
+                    <li><strong>CaDiCaL:</strong> Recent solver with strong empirical results</li>
+                    <li><strong>Kissat:</strong> Modern solver with advanced techniques</li>
+                </ul>
+
+                <h2>Applications of SAT Solving</h2>
+                <h3>Hardware Verification</h3>
+                <p>Checking that hardware designs satisfy specifications by encoding verification conditions as SAT problems.</p>
+
+                <h3>Software Verification</h3>
+                <p>Proving program correctness by converting verification goals to SAT instances.</p>
+
+                <h3>Planning and Scheduling</h3>
+                <p>Solving planning problems by encoding them as satisfiability problems.</p>
+
+                <h3>Cryptanalysis</h3>
+                <p>Finding key collisions and analyzing cryptographic algorithms.</p>
+
+                <h3>Bounded Model Checking</h3>
+                <p>Verifying system properties up to a bounded number of steps.</p>
+
+                <h2>Encoding Problems as SAT</h2>
+                <p>To use SAT solvers, we must encode our problem as a Boolean formula. Example: Graph 3-coloring</p>
+                <ul>
+                    <li>Variables: For each node n and color c, variable x_{n,c} = true if node n has color c</li>
+                    <li>Constraints: Each node gets exactly one color, adjacent nodes have different colors</li>
+                </ul>
+
+                <h2>Limitations and Challenges</h2>
+                <ul>
+                    <li><strong>Encoding Overhead:</strong> Problem encoding can create large formulas</li>
+                    <li><strong>Symmetry:</strong> Many problems have symmetries that SAT solvers may not exploit</li>
+                    <li><strong>Randomness:</strong> Performance can vary significantly based on random choices</li>
+                    <li><strong>Theory Integration:</strong> Reasoning about arithmetic requires extensions like SMT</li>
+                </ul>
+
+                <h2>Next Steps</h2>
+                <p>Building on SAT solving foundations, the next part explores SMT (Satisfiability Modulo Theories) solvers, which extend SAT with reasoning about mathematical theories like arithmetic and data structures.</p>
+            </div>
+
+            <!-- Series Navigation -->
+            <div class="series-navigation">
+                <h3>Constraint Solving & Satisfaction Series</h3>
+                <div class="series-links">
+                    <a href="constraint-solving-sat.html" class="series-link current">Part 1: SAT Solvers</a>
+                    <a href="constraint-solving-smt.html" class="series-link">Part 2: SMT Solvers & Theory Extensions</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+                <a href="feed.xml" class="rss-link" title="Subscribe to RSS Feed">
+                    <i class="fas fa-rss"></i> RSS Feed
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

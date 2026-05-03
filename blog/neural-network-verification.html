@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,63 +17,90 @@
             <div class="logo">YN</div>
             <nav>
                 <ul>
-                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#about">Home</a></li>
+                    <li><a href="../index.html#intro">Introduction</a></li>
+                    <li><a href="index.html">Blog</a></li>
                     <li><a href="../index.html#news">News</a></li>
-                    <li><a href="../index.html#blog">Blog</a></li>
-                    <li><a href="../index.html#projects">Projects</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
         <article class="blog-article">
             <div class="article-header">
-                <a href="../index.html#blog" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
                 <h1>Introduction to Neural Network Verification</h1>
                 <div class="article-meta">
                     <span>January 15, 2025</span>
                     <span>•</span>
-                    <span>Lecture Notes</span>
+                    <span>Neural Network Verification Series - Part 1</span>
                     <span>•</span>
-                    <span>15 min read</span>
+                    <span>20 min read</span>
                 </div>
             </div>
 
             <div class="article-content">
-                <h2>Introduction</h2>
-                <p>Neural network verification is becoming increasingly important as we deploy these systems in
-                    safety-critical applications. This lecture introduces the fundamental concepts and techniques used
-                    to formally verify the behavior of neural networks.</p>
+                <h2>Why Neural Network Verification Matters</h2>
+                <p>Neural networks are increasingly deployed in safety-critical applications such as autonomous vehicles, medical diagnosis systems, and aviation autopilots. Unlike traditional software, neural networks are difficult to understand and predict due to their black-box nature. This makes formal verification essential for ensuring their reliability.</p>
 
-                <h2>Mathematical Foundations</h2>
-                <p>The mathematical foundation of neural network verification relies on concepts from formal methods,
-                    optimization theory, and computational logic. We'll explore how these areas intersect to provide
-                    guarantees about neural network behavior.</p>
+                <h2>The Verification Challenge</h2>
+                <p>Neural network verification asks: Can we guarantee that a network behaves correctly for all possible inputs within a given domain? This is fundamentally different from testing, which can only verify a finite set of cases.</p>
 
-                <h3>Key Concepts</h3>
+                <h2>Formal Problem Statement</h2>
+                <p>Given a neural network N and a specification φ, prove that for all inputs x satisfying input constraints, the network's output N(x) satisfies the property φ.</p>
+
+                <h2>Key Challenges</h2>
                 <ul>
-                    <li>Formal specifications</li>
-                    <li>Satisfiability Modulo Theories (SMT)</li>
-                    <li>Linear programming relaxations</li>
-                    <li>Abstract interpretation</li>
+                    <li><strong>High Dimensionality:</strong> Real networks operate on high-dimensional input spaces</li>
+                    <li><strong>Nonlinearity:</strong> ReLU and other activation functions create nonlinear constraints</li>
+                    <li><strong>Scalability:</strong> Large networks are computationally expensive to verify</li>
+                    <li><strong>Specification:</strong> Defining formal specifications for neural networks is non-trivial</li>
                 </ul>
 
-                <h2>Verification Techniques</h2>
-                <p>Several approaches exist for neural network verification, each with their own strengths and
-                    limitations...</p>
+                <h2>Verification Approaches</h2>
+                <h3>1. SMT-Based Methods</h3>
+                <p>Encode the network and properties as satisfiability formulas and use SMT solvers.</p>
 
-                <h2>Conclusion</h2>
-                <p>Neural network verification is an active area of research with significant practical implications for
-                    the deployment of AI systems in critical applications.</p>
+                <h3>2. Abstract Interpretation</h3>
+                <p>Use abstract domains to compute safe over-approximations of network outputs.</p>
+
+                <h3>3. Reachability Analysis</h3>
+                <p>Compute the set of reachable outputs for given input sets.</p>
+
+                <h3>4. Robustness Analysis</h3>
+                <p>Verify robustness against adversarial perturbations.</p>
+
+                <h2>Common Specifications</h2>
+                <ul>
+                    <li><strong>Adversarial Robustness:</strong> Network output unchanged for small input perturbations</li>
+                    <li><strong>Safety Invariants:</strong> Network output stays within safe bounds</li>
+                    <li><strong>Accuracy Guarantees:</strong> Network achieves minimum accuracy on test sets</li>
+                </ul>
+
+                <h2>Real-World Applications</h2>
+                <p>Verification has been applied to:</p>
+                <ul>
+                    <li>Autonomous vehicle perception systems</li>
+                    <li>Aircraft collision avoidance systems</li>
+                    <li>Medical image analysis</li>
+                    <li>Critical control systems</li>
+                </ul>
+
+                <h2>Next Steps</h2>
+                <p>In future posts, we'll explore specific verification techniques in detail and discuss tools available for neural network verification.</p>
             </div>
         </article>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+            <div class="footer-content">
+                <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+                <a href="feed.xml" class="rss-link" title="Subscribe to RSS Feed">
+                    <i class="fas fa-rss"></i> RSS Feed
+                </a>
+            </div>
         </div>
     </footer>
 </body>
 
-</html> -->
+</html>

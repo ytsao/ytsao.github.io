@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMT Solvers and Theory Extensions - Yi-Nung Tsao</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">YN</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#about">Home</a></li>
+                    <li><a href="../index.html#intro">Introduction</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="../index.html#news">News</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article class="blog-article">
+            <div class="article-header">
+                <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                <h1>SMT Solvers and Theory Extensions</h1>
+                <div class="article-meta">
+                    <span>February 12, 2025</span>
+                    <span>•</span>
+                    <span>Constraint Solving Series - Part 2</span>
+                    <span>•</span>
+                    <span>20 min read</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2>Beyond Boolean Satisfiability</h2>
+                <p>While SAT solvers excel at Boolean satisfiability, many real-world problems involve constraints over mathematical domains like integers, reals, arrays, and bitvectors. SMT (Satisfiability Modulo Theories) solvers extend SAT solving to handle these richer domains.</p>
+
+                <h2>What is SMT?</h2>
+                <p>SMT asks: Given a formula with variables and constraints over specific theories, does there exist an assignment that satisfies all constraints?</p>
+
+                <p>Example: (x > 5) ∧ (y < 10) ∧ (x + y = 12)</p>
+                <p>This cannot be solved by boolean SAT; we need SMT to reason about linear arithmetic.</p>
+
+                <h2>Common Theories in SMT</h2>
+                <h3>Linear Arithmetic (LA)</h3>
+                <p>Reasoning about linear constraints over integers or reals.</p>
+                <ul>
+                    <li>LIA: Linear Integer Arithmetic</li>
+                    <li>LRA: Linear Real Arithmetic</li>
+                </ul>
+                <p>Example: 2x + 3y ≤ 15, x ≥ 0, y ≥ 0</p>
+
+                <h3>Uninterpreted Functions with Equality (UF)</h3>
+                <p>Reasoning about function symbols where only equality relationships matter, not their concrete interpretation.</p>
+                <p>Example: f(a) = b ∧ f(b) = c ∧ a ≠ c (implies inconsistency)</p>
+
+                <h3>Arrays</h3>
+                <p>Reasoning about array elements and updates.</p>
+                <p>Example: a[i] = 5 ∧ a[j] = 10 ∧ select(store(a, i, 7), j) = 10</p>
+
+                <h3>Bitvectors</h3>
+                <p>Reasoning about fixed-width bit representations, crucial for hardware verification.</p>
+                <p>Example: bv_add(x, y) = #x0F (bitwise operations)</p>
+
+                <h3>Nonlinear Arithmetic (NLA)</h3>
+                <p>Constraints involving multiplication and other nonlinear operations.</p>
+                <p>Example: x * y + z ≥ 10 (more challenging, often incomplete)</p>
+
+                <h2>SMT Solver Architecture</h2>
+                <h3>Core Components</h3>
+                <p>Modern SMT solvers typically follow a DPLL(T) architecture:</p>
+                <ul>
+                    <li><strong>DPLL Engine:</strong> Boolean satisfiability solver at the top level</li>
+                    <li><strong>Theory Solver(s):</strong> Dedicated solvers for specific theories</li>
+                    <li><strong>Cooperation:</strong> DPLL proposes assignments, theory solvers check consistency</li>
+                </ul>
+
+                <h3>DPLL(T) Framework</h3>
+                <p>The DPLL(T) framework integrates SAT solving with theory reasoning:</p>
+                <ol>
+                    <li>DPLL engine makes a decision or unit propagates</li>
+                    <li>Send the current assignment to theory solvers</li>
+                    <li>If theory solvers find a conflict, learn a clause and backtrack</li>
+                    <li>If satisfiable, return the solution</li>
+                </ol>
+
+                <h2>Prominent SMT Solvers</h2>
+                <h3>Z3 (Microsoft Research)</h3>
+                <p>Widely used, supports many theories, excellent API support. Particularly strong in program verification.</p>
+
+                <h3>CVC5 (SMT-COMP Winner)</h3>
+                <p>Open source, highly competitive, strong support for multiple theories including UF, LA, arrays.</p>
+
+                <h3>Yices (SRI International)</h3>
+                <p>Strong support for linear arithmetic and bitvectors. Efficient for hardware-related problems.</p>
+
+                <h3>veriT</h3>
+                <p>Focus on producing detailed proof certificates for verification.</p>
+
+                <h2>Applications of SMT Solving</h2>
+                <h3>Program Verification</h3>
+                <p>Verifying that programs satisfy specifications by checking generated verification conditions.</p>
+
+                <h3>Bounded Model Checking</h3>
+                <p>Finding bugs by exploring bounded execution paths.</p>
+
+                <h3>Security Analysis</h3>
+                <p>Analyzing cryptographic protocols and finding vulnerabilities.</p>
+
+                <h3>Hardware Verification</h3>
+                <p>Verifying hardware designs at various abstraction levels.</p>
+
+                <h3>Test Case Generation</h3>
+                <p>Automatically generating test cases that satisfy complex constraints.</p>
+
+                <h2>Example: Program Verification with SMT</h2>
+                <p>Consider verifying that this loop terminates within n iterations:</p>
+                <pre>
+i := 0
+while i < n:
+    i := i + 1
+                </pre>
+                <p>We can encode this as SMT constraints and ask: "Can we find an initial state where the loop doesn't terminate within n+1 iterations?" If unsatisfiable, termination is guaranteed.</p>
+
+                <h2>Challenges in SMT Solving</h2>
+                <ul>
+                    <li><strong>Theory Combination:</strong> Combining multiple theories can be complex</li>
+                    <li><strong>Nonlinear Arithmetic:</strong> Most SMT solvers are incomplete for nonlinear constraints</li>
+                    <li><strong>Scalability:</strong> Large formulas with many constraints can be slow</li>
+                    <li><strong>Theory-Specific Heuristics:</strong> Different theories require different optimization strategies</li>
+                    <li><strong>Proof Production:</strong> Generating human-readable proofs is challenging</li>
+                </ul>
+
+                <h2>SMT vs. SAT vs. Constraint Programming</h2>
+                <p>Different paradigms have different strengths:</p>
+                <ul>
+                    <li><strong>SAT:</strong> Powerful for Boolean properties, mature solvers</li>
+                    <li><strong>SMT:</strong> Better for problems with arithmetic and structure</li>
+                    <li><strong>CP:</strong> Good for highly constrained combinatorial problems</li>
+                </ul>
+
+                <h2>Future Directions</h2>
+                <ul>
+                    <li>Better handling of nonlinear arithmetic through symbolic methods</li>
+                    <li>Integration with machine learning for heuristics</li>
+                    <li>Improved support for complex theory combinations</li>
+                    <li>Incremental solving for reactive systems</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>SMT solving represents a powerful tool for automated reasoning over rich domains. With the combination of SAT solving techniques and dedicated theory solvers, modern SMT solvers can handle surprisingly complex real-world problems. Understanding both SAT and SMT is essential for anyone working in formal verification, program analysis, or automated reasoning.</p>
+            </div>
+
+            <!-- Series Navigation -->
+            <div class="series-navigation">
+                <h3>Constraint Solving & Satisfaction Series</h3>
+                <div class="series-links">
+                    <a href="constraint-solving-sat.html" class="series-link">Part 1: SAT Solvers</a>
+                    <a href="constraint-solving-smt.html" class="series-link current">Part 2: SMT Solvers & Theory Extensions</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+                <a href="feed.xml" class="rss-link" title="Subscribe to RSS Feed">
+                    <i class="fas fa-rss"></i> RSS Feed
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

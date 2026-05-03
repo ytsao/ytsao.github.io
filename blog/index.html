@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="Yi-Nung Tsao's Blog RSS Feed" href="feed.xml">
 </head>
 
 <body>
@@ -17,11 +18,10 @@
             <div class="logo">YN</div>
             <nav>
                 <ul>
-                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#about">Home</a></li>
+                    <li><a href="../index.html#intro">Introduction</a></li>
+                    <li><a href="index.html">Blog</a></li>
                     <li><a href="../index.html#news">News</a></li>
-                    <li><a href="../index.html#blog">Blog</a></li>
-                    <li><a href="../index.html#projects">Projects</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -29,34 +29,18 @@
         <section class="blog-page">
             <h1 class="page-title">Blog & Lecture Notes</h1>
 
+            <!-- Search Bar -->
+            <div class="blog-search-container">
+                <input type="text" id="searchInput" class="blog-search" placeholder="Search posts...">
+                <i class="fas fa-search"></i>
+            </div>
+
             <!-- Category Filter -->
             <div class="category-filter">
                 <button class="filter-btn active" data-category="all">All Posts</button>
-                <button class="filter-btn" data-category="phdlife">PhD Journey</button>
                 <button class="filter-btn" data-category="abstract-interpretation">Abstract Interpretation</button>
                 <button class="filter-btn" data-category="neural-networks">Neural Networks</button>
-            </div>
-
-            <!-- PhD Journey Series-->
-            <div class="category-section" data-category="phdlife">
-                <h2 class="category-title">
-                    <i class="fas fa-layer-group"></i>
-                    PhD Journey
-                </h2>
-                <div class="posts-grid">
-                    <article class="post-card">
-                        <div class="post-meta">
-                            <span class="post-date">January 20, 2025</span>
-                            <span class="post-number">Part 1</span>
-                        </div>
-                        <h3 class="post-title">How to apply PhD in Europe?</h3>
-                        <p class="post-excerpt">The process to apply phd in europe from Taiwan.</p>
-                        <div class="post-tags">
-                            <span class="tag">PhD</span>
-                        </div>
-                        <a href="phdlife-begin.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </article>
-                </div>
+                <button class="filter-btn" data-category="constraint-solving">Constraint Solving</button>
             </div>
 
             <!-- Abstract Interpretation Series -->
@@ -66,10 +50,11 @@
                     Abstract Interpretation Series
                 </h2>
                 <div class="posts-grid">
-                    <article class="post-card">
+                    <article class="post-card" data-title="Introduction to Abstract Interpretation" data-keywords="abstract interpretation theory analysis foundations">
                         <div class="post-meta">
                             <span class="post-date">January 20, 2025</span>
                             <span class="post-number">Part 1</span>
+                            <span class="post-read-time">15 min read</span>
                         </div>
                         <h3 class="post-title">Introduction to Abstract Interpretation</h3>
                         <p class="post-excerpt">Learn the foundational concepts of abstract interpretation and why it's
@@ -82,10 +67,11 @@
                                 class="fas fa-arrow-right"></i></a>
                     </article>
 
-                    <article class="post-card">
+                    <article class="post-card" data-title="Lattices and Domains" data-keywords="lattices domains mathematical foundation">
                         <div class="post-meta">
                             <span class="post-date">January 25, 2025</span>
                             <span class="post-number">Part 2</span>
+                            <span class="post-read-time">18 min read</span>
                         </div>
                         <h3 class="post-title">Lattices and Domains</h3>
                         <p class="post-excerpt">Understanding lattice structures and how they form the mathematical
@@ -107,10 +93,11 @@
                     Neural Network Verification
                 </h2>
                 <div class="posts-grid">
-                    <article class="post-card">
+                    <article class="post-card" data-title="Introduction to Neural Network Verification" data-keywords="neural networks verification formal methods">
                         <div class="post-meta">
                             <span class="post-date">January 15, 2025</span>
                             <span class="post-number">Part 1</span>
+                            <span class="post-read-time">20 min read</span>
                         </div>
                         <h3 class="post-title">Introduction to Neural Network Verification</h3>
                         <p class="post-excerpt">A comprehensive introduction to the fundamentals of neural network
@@ -124,21 +111,89 @@
                     </article>
                 </div>
             </div>
+
+            <!-- Constraint Solving Series -->
+            <div class="category-section" data-category="constraint-solving">
+                <h2 class="category-title">
+                    <i class="fas fa-puzzle-piece"></i>
+                    Constraint Solving & Satisfaction
+                </h2>
+                <div class="posts-grid">
+                    <article class="post-card" data-title="SAT Solvers and Boolean Satisfiability" data-keywords="SAT solver boolean satisfiability NP-complete">
+                        <div class="post-meta">
+                            <span class="post-date">February 5, 2025</span>
+                            <span class="post-number">Part 1</span>
+                            <span class="post-read-time">18 min read</span>
+                        </div>
+                        <h3 class="post-title">SAT Solvers and Boolean Satisfiability</h3>
+                        <p class="post-excerpt">Learn about SAT solving algorithms and their applications in software verification.</p>
+                        <div class="post-tags">
+                            <span class="tag">SAT Solving</span>
+                            <span class="tag">Algorithms</span>
+                        </div>
+                        <a href="constraint-solving-sat.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="post-card" data-title="SMT Solvers and Theory Extensions" data-keywords="SMT solver satisfiability modulo theories">
+                        <div class="post-meta">
+                            <span class="post-date">February 12, 2025</span>
+                            <span class="post-number">Part 2</span>
+                            <span class="post-read-time">20 min read</span>
+                        </div>
+                        <h3 class="post-title">SMT Solvers and Theory Extensions</h3>
+                        <p class="post-excerpt">Discover how SMT solvers extend SAT with reasoning about theories like linear arithmetic.</p>
+                        <div class="post-tags">
+                            <span class="tag">SMT</span>
+                            <span class="tag">Theory Extensions</span>
+                        </div>
+                        <a href="constraint-solving-smt.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
         </section>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+            <div class="footer-content">
+                <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
+                <a href="feed.xml" class="rss-link" title="Subscribe to RSS Feed">
+                    <i class="fas fa-rss"></i> RSS Feed
+                </a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Category filtering functionality
+        // Category filtering and search functionality
         document.addEventListener('DOMContentLoaded', function () {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const categorySections = document.querySelectorAll('.category-section');
+            const postCards = document.querySelectorAll('.post-card');
+            const searchInput = document.getElementById('searchInput');
 
+            // Search functionality
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    postCards.forEach(card => {
+                        const title = card.getAttribute('data-title') || '';
+                        const keywords = card.getAttribute('data-keywords') || '';
+                        const excerpt = card.querySelector('.post-excerpt')?.textContent || '';
+                        
+                        const searchableText = (title + ' ' + keywords + ' ' + excerpt).toLowerCase();
+                        
+                        if (searchTerm === '' || searchableText.includes(searchTerm)) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            // Category filtering functionality
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function () {
                     const category = this.getAttribute('data-category');
