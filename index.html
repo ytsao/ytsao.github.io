@@ -43,6 +43,15 @@
         sections.forEach(section => {
             observer.observe(section);
         });
+
+        const newsList = document.querySelector('.simple-news-list');
+        const newsToggleBtn = document.getElementById('newsToggleBtn');
+        if (newsList && newsToggleBtn) {
+            newsToggleBtn.addEventListener('click', function () {
+                const expanded = newsList.classList.toggle('expanded');
+                newsToggleBtn.textContent = expanded ? 'Show less' : 'Show all news';
+            });
+        }
     });
 </script>
 
@@ -100,32 +109,33 @@
                 <ul class="simple-news-list">
                     <li><span class="news-bullet">📝</span><strong>Current:</strong>I'm preparing my first publication🔥</li>
                     <li><span class="news-bullet">🛬</span><strong>3 November 2025:</strong>Landing at lattice-land.</li>
-                    <li><span class="news-bullet">🏃</span><strong>19 October 2025:</strong>NEW PR in full marathon, Amsterdam, Netherland (42.195 km, Time: 3:59:21).</li>
+                    <li><span class="news-bullet">🏃</span><strong>19 October 2025:</strong>NEW PR in full marathon, Amsterdam, Netherlands (42.195 km, Time: 3:59:21).</li>
                     <li><span class="news-bullet">📝</span><strong>Winter 2025:</strong>I was a TA in Lattice Theory for Parallel Programming at University of Luxembourg.</li>
-                    <li><span class="news-bullet">🏃</span><strong>9-16 August 2025:</strong>Summer Running Self-challange Project - 100 km in a week, Annecy, France.</li>
+                    <li><span class="news-bullet">🏃</span><strong>9-16 August 2025:</strong>Summer Running Self-Challenge Project - 100 km in a week, Annecy, France.</li>
                     <li><span class="news-bullet">📝</span><strong>August 2025:</strong>I was a sub-reviewer in ICTAI 2025.</li>
                     <li><span class="news-bullet">🏃</span><strong>12 July 2025:</strong>Lënster Trail, Luxembourg (15 km, 300 D+, Time: 1:25:25).</li>
                     <li><span class="news-bullet">🍀</span> <strong>8 July 2025:</strong> I passed my CET 2.</li>
                     <li><span class="news-bullet">🏃</span><strong>31 May 2025:</strong>ING half marathon, did not perform well (21.0975 km, Time: 2:01:46).</li>
                     <li><span class="news-bullet">🏃</span> <strong>21 April 2025:</strong>I ran DKV Urban Trail again in Luxembourg (34 km, 830 D+, Time: 4:06:11).</li>
-                    <li><span class="news-bullet">🏃</span><strong>22 March 2025:</strong>Birthday Project - Donut Infinite Trail, Tawain, 5 Loops (34.9 km, 2812 D+, 12:10:00).</li>
-                    <li><span class="news-bullet">🏃</span><strong>22 December 2024:</strong>First ultra trail, 3-Länner-Trail, Luxembourg, but DNF (43.51/51 km, 1100/1400 D+, Time: 7:17:08).</li>
-                    <li><span class="news-bullet">🏃</span><strong>27 October 2024:</strong>I finished my first full marathon in 4 hours in Frankfurt, Germany (42.195 km, Time: 3:59:38).</li>
-                    <li><span class="news-bullet">🏃</span><strong>29 September 2024:</strong>NEW PR in half marathon, Route du vin, Luxembourg (21.0975 km, Time: 1:41:55).</li>
-                    <li><span class="news-bullet">📝</span><strong>Winter 2024:</strong>I was a TA in Lattice Theory for Parallel Programming at University of Luxembourg.</li>
-                    <li><span class="news-bullet">🏃</span><strong>14 September 2024:</strong>I ran UTML (35 km, 1100 D+, 5:11:57).</li>
-                    <li><span class="news-bullet">🏃</span><strong>3 September 2024:</strong>Summer Running Self-challange Project - Lipari Island Tour (37.29km, 1167 D+, Time: 6:36:46).</li>
-                    <li><span class="news-bullet">📝</span><strong>1-7 September 2024:</strong>I attended Lipari Summer School on Abstract Interpretation, Italy.</li>
-                    <li><span class="news-bullet">📝</span><strong>8-12 July 2024:</strong>I attended Summer School on Verification Technology, Systems & Applications in Belval, Luxembourg.</li>
-                    <li><span class="news-bullet">🏃</span><strong>30 June 2024:</strong>Trail des Mines (14 km, 250 D+, Time: 1:26:25).</li>
-                    <li><span class="news-bullet">🎤</span><strong>17-21 June 2024:</strong>I was a speaker about "Introduction to Neural Network Verification by Abstract Interpretation" in Abstract Interpretation Workshop in Luxembourg.</li>
-                    <li><span class="news-bullet">🍀</span><strong>10 June 2024:</strong> I passed my CET 1.</li>
-                    <li><span class="news-bullet">🏃</span><strong>21 April 2024:</strong>I ran DKV Urban Trail in Luxembourg (34 km, 830 D+, Time: 4:01:04).</li>
-                    <li><span class="news-bullet">📝</span><strong>25-29 March 2024:</strong> I attended Winter School on Constraint Programming in Aussois, France.</li>
-                    <li><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first trail running race (Trail' Malling, France) with my beautiful white road shoes (24 km, 600 D+, Time: 3:59:12).</li>
-                    <li><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first running race (Esch Kulturlaf) in Europe (10 km, Time: 1:11:32).</li>
-                    <li><span class="news-bullet">🎉</span><strong>1 August 2023:</strong>I started my PhD journey in PCOG team at University of Luxembourg.</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>22 March 2025:</strong>Birthday Project - Donut Infinite Trail, Taiwan, 5 Loops (34.9 km, 2812 D+, 12:10:00).</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>22 December 2024:</strong>First ultra trail, 3-Länner-Trail, Luxembourg, but DNF (43.51/51 km, 1100/1400 D+, Time: 7:17:08).</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>27 October 2024:</strong>I finished my first full marathon in 4 hours in Frankfurt, Germany (42.195 km, Time: 3:59:38).</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>29 September 2024:</strong>NEW PR in half marathon, Route du vin, Luxembourg (21.0975 km, Time: 1:41:55).</li>
+                    <li class="news-extra"><span class="news-bullet">📝</span><strong>Winter 2024:</strong>I was a TA in Lattice Theory for Parallel Programming at University of Luxembourg.</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>14 September 2024:</strong>I ran UTML (35 km, 1100 D+, 5:11:57).</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>3 September 2024:</strong>Summer Running Self-Challenge Project - Lipari Island Tour (37.29 km, 1167 D+, Time: 6:36:46).</li>
+                    <li class="news-extra"><span class="news-bullet">📝</span><strong>1-7 September 2024:</strong>I attended Lipari Summer School on Abstract Interpretation, Italy.</li>
+                    <li class="news-extra"><span class="news-bullet">📝</span><strong>8-12 July 2024:</strong>I attended Summer School on Verification Technology, Systems & Applications in Belval, Luxembourg.</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>30 June 2024:</strong>Trail des Mines (14 km, 250 D+, Time: 1:26:25).</li>
+                    <li class="news-extra"><span class="news-bullet">🎤</span><strong>17-21 June 2024:</strong>I was a speaker about "Introduction to Neural Network Verification by Abstract Interpretation" at the Abstract Interpretation Workshop in Luxembourg.</li>
+                    <li class="news-extra"><span class="news-bullet">🍀</span><strong>10 June 2024:</strong> I passed my CET 1.</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>21 April 2024:</strong>I ran DKV Urban Trail in Luxembourg (34 km, 830 D+, Time: 4:01:04).</li>
+                    <li class="news-extra"><span class="news-bullet">📝</span><strong>25-29 March 2024:</strong> I attended Winter School on Constraint Programming in Aussois, France.</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first trail running race (Trail' Malling, France) with my beautiful white road shoes (24 km, 600 D+, Time: 3:59:12).</li>
+                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first running race (Esch Kulturlaf) in Europe (10 km, Time: 1:11:32).</li>
+                    <li class="news-extra"><span class="news-bullet">🎉</span><strong>1 August 2023:</strong>I started my PhD journey in the PCOG team at University of Luxembourg.</li>
                 </ul>
+                <button type="button" class="news-toggle" id="newsToggleBtn">Show all news</button>
             </div>
         </section>
     </div>
