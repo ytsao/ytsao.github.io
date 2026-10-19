@@ -5,145 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yi-Nung Tsao</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Force scroll to top on page load -->
-    <script>
-        window.addEventListener('load', function() {
-            window.scrollTo(0, 0);
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            window.scrollTo(0, 0);
-        });
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
 </head>
-<script>
-    // Intersection Observer for scroll animations
-    document.addEventListener('DOMContentLoaded', function () {
-        const sections = document.querySelectorAll('.section');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        const newsList = document.querySelector('.simple-news-list');
-        const newsToggleBtn = document.getElementById('newsToggleBtn');
-        if (newsList && newsToggleBtn) {
-            newsToggleBtn.addEventListener('click', function () {
-                const expanded = newsList.classList.toggle('expanded');
-                newsToggleBtn.textContent = expanded ? 'Show less' : 'Show all news';
-            });
-        }
-    });
-</script>
 
 <body>
-    <script>
-        window.scrollTo(0, 0);
-    </script>
-
-    <div class="container">
-        <header>
-            <div class="logo">YN</div>
-            <nav>
-                <ul>
-                    <li><a href="#about">Home</a></li>
-                    <li><a href="#intro">Introduction</a></li>
-                    <li><a href="blog/index.html">Blog</a></li>
-                    <li><a href="#news">News</a></li>
-                </ul>
-            </nav>
+    <main>
+        <!-- Name, centered -->
+        <header class="name">
+            <h1>Yi-Nung Tsao (曹議濃)</h1>
         </header>
 
-        <section class="hero" id="about">
-            <div class="hero-content">
-                <h1>Hello, I'm <span class="highlight">Yi-Nung Tsao</span></h1>
-                <p class="tagline">A PhD student & Trail Runner</p>
-                <div class="cta-buttons">
-                    <a href="#intro" class="btn secondary">Introduction</a>
-                    <a href="#news" class="btn primary">Latest News</a>
-                </div>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/ytsao" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/yi-nung-tsao/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.strava.com/athletes/123889882" title="Strava"><i class="fab fa-strava"></i></a>
-            </div>
+        <!-- Short bio + contact -->
+        <section>
+            <p>Hello, I am Yi-Nung. I am currently a PhD student at the University of Luxembourg. 
+                I am working with <a href="https://danoy.gforge.uni.lu/">Grégoire Danoy</a> and <a href="https://ptal.github.io/">Pierre Talbot</a>. 
+                My research interests focus mainly on designing a sound neural network verifier using constraint programming. 
+                Before coming to Europe, I was a software engineer developing production scheduling systems 
+                at <a href="https://www.auo.com/en-global">AUO</a> in <a href="https://www.taiwan.gov.tw/about.php">Taiwan</a>. </p>
+            <p>btw, I'm also an ultra trail runner :D</p>
+            <!-- <p>Research Interests: Neural Network Verification, Operations Research</p> -->
+            <p>
+                Email: yi-nung.tsao@uni.lu<br>
+                Office: MNO, E02 0215060
+            </p>
+            <p class="links">
+                <a href="https://scholar.google.fr/citations?user=11knAPIAAAAJ&hl=en">Google Scholar</a>
+                <a href="https://github.com/ytsao">GitHub</a>
+                <a href="https://www.linkedin.com/in/yi-nung-tsao/">LinkedIn</a>
+                <a href="https://www.strava.com/athletes/123889882">Strava</a>
+                <!-- <a href="cv.pdf">CV</a> -->
+            </p>
         </section>
 
-        <section class="section" id="intro">
-            <h2 class="section-title">Personal Introduction</h2>
-            <div class="intro-container">
-                <p>
-                    Hi, I’m Yi-Nung Tsao. I’m a PhD student working on topics around program analysis and
-                    verification, with a strong interest in rigorous, research-style exposition.
-                </p>
-                <p>
-                    Outside the lab, I’m also a trail runner who enjoys endurance training and the challenge
-                    of long, technical routes.
-                </p>
-            </div>
-        </section>
+        <!-- Positions / education timeline
+        <h2>Positions</h2>
+        <p><span class="placeholder">[Current position, institution, advisor, years]</span></p>
+        <p><span class="placeholder">[Previous education / positions, years]</span></p> -->
 
-        <section class="section" id="news">
-            <h2 class="section-title">News</h2>
-            <div class="news-container">
-                <ul class="simple-news-list">
-                    <li><span class="news-bullet">📝</span><strong>Current:</strong>I'm preparing my first publication🔥</li>
-                    <li><span class="news-bullet">🛬</span><strong>3 November 2025:</strong>Landing at lattice-land.</li>
-                    <li><span class="news-bullet">🏃</span><strong>19 October 2025:</strong>NEW PR in full marathon, Amsterdam, Netherlands (42.195 km, Time: 3:59:21).</li>
-                    <li><span class="news-bullet">📝</span><strong>Winter 2025:</strong>I was a TA in Lattice Theory for Parallel Programming at University of Luxembourg.</li>
-                    <li><span class="news-bullet">🏃</span><strong>9-16 August 2025:</strong>Summer Running Self-Challenge Project - 100 km in a week, Annecy, France.</li>
-                    <li><span class="news-bullet">📝</span><strong>August 2025:</strong>I was a sub-reviewer in ICTAI 2025.</li>
-                    <li><span class="news-bullet">🏃</span><strong>12 July 2025:</strong>Lënster Trail, Luxembourg (15 km, 300 D+, Time: 1:25:25).</li>
-                    <li><span class="news-bullet">🍀</span> <strong>8 July 2025:</strong> I passed my CET 2.</li>
-                    <li><span class="news-bullet">🏃</span><strong>31 May 2025:</strong>ING half marathon, did not perform well (21.0975 km, Time: 2:01:46).</li>
-                    <li><span class="news-bullet">🏃</span> <strong>21 April 2025:</strong>I ran DKV Urban Trail again in Luxembourg (34 km, 830 D+, Time: 4:06:11).</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>22 March 2025:</strong>Birthday Project - Donut Infinite Trail, Taiwan, 5 Loops (34.9 km, 2812 D+, 12:10:00).</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>22 December 2024:</strong>First ultra trail, 3-Länner-Trail, Luxembourg, but DNF (43.51/51 km, 1100/1400 D+, Time: 7:17:08).</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>27 October 2024:</strong>I finished my first full marathon in 4 hours in Frankfurt, Germany (42.195 km, Time: 3:59:38).</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>29 September 2024:</strong>NEW PR in half marathon, Route du vin, Luxembourg (21.0975 km, Time: 1:41:55).</li>
-                    <li class="news-extra"><span class="news-bullet">📝</span><strong>Winter 2024:</strong>I was a TA in Lattice Theory for Parallel Programming at University of Luxembourg.</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>14 September 2024:</strong>I ran UTML (35 km, 1100 D+, 5:11:57).</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>3 September 2024:</strong>Summer Running Self-Challenge Project - Lipari Island Tour (37.29 km, 1167 D+, Time: 6:36:46).</li>
-                    <li class="news-extra"><span class="news-bullet">📝</span><strong>1-7 September 2024:</strong>I attended Lipari Summer School on Abstract Interpretation, Italy.</li>
-                    <li class="news-extra"><span class="news-bullet">📝</span><strong>8-12 July 2024:</strong>I attended Summer School on Verification Technology, Systems & Applications in Belval, Luxembourg.</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>30 June 2024:</strong>Trail des Mines (14 km, 250 D+, Time: 1:26:25).</li>
-                    <li class="news-extra"><span class="news-bullet">🎤</span><strong>17-21 June 2024:</strong>I was a speaker about "Introduction to Neural Network Verification by Abstract Interpretation" at the Abstract Interpretation Workshop in Luxembourg.</li>
-                    <li class="news-extra"><span class="news-bullet">🍀</span><strong>10 June 2024:</strong> I passed my CET 1.</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>21 April 2024:</strong>I ran DKV Urban Trail in Luxembourg (34 km, 830 D+, Time: 4:01:04).</li>
-                    <li class="news-extra"><span class="news-bullet">📝</span><strong>25-29 March 2024:</strong> I attended Winter School on Constraint Programming in Aussois, France.</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first trail running race (Trail' Malling, France) with my beautiful white road shoes (24 km, 600 D+, Time: 3:59:12).</li>
-                    <li class="news-extra"><span class="news-bullet">🏃</span><strong>2 September 2023:</strong>I finished my first running race (Esch Kulturlaf) in Europe (10 km, Time: 1:11:32).</li>
-                    <li class="news-extra"><span class="news-bullet">🎉</span><strong>1 August 2023:</strong>I started my PhD journey in the PCOG team at University of Luxembourg.</li>
-                </ul>
-                <button type="button" class="news-toggle" id="newsToggleBtn">Show all news</button>
-            </div>
-        </section>
-    </div>
+        <!-- News: newest first
+        <h2>News</h2>
+        <ul class="news">
+            <li><span class="date"><span class="placeholder">[Date]</span>:</span> <span class="placeholder">[News item]</span></li>
+            <li><span class="date"><span class="placeholder">[Date]</span>:</span> <span class="placeholder">[News item]</span></li>
+            <li><span class="date"><span class="placeholder">[Date]</span>:</span> <span class="placeholder">[News item]</span></li>
+        </ul> -->
+
+        <!-- Publications: newest first; `reversed` makes the numbering count down -->
+        <h2>Publications and preprints</h2>
+        <ol class="pubs" reversed>
+            <li>
+                <a class="pub-title" href="https://ceur-ws.org/Vol-4276/paper1.pdf">Towards Continuous Constraint Programming for Sound Neural Network Verification</a>,
+                with P. Talbot, LOGICNN (2026).
+                <!-- <span class="pub-venue"><span class="placeholder">[Venue, year]</span></span>. -->
+            </li>
+        </ol>
+
+        <!-- Talks / teaching (optional, delete if unused) -->
+        <h2>Teaching Assistant</h2>
+        <ul class="news">
+            <li>Lattice Theory for Parallel Programming, University of Luxembourg, Winter 2026</li>
+            <li>Lattice Theory for Parallel Programming, University of Luxembourg, Winter 2025</li>
+            <li>Lattice Theory for Parallel Programming, University of Luxembourg, Winter 2024</li>
+        </ul>
+    </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Yi-Nung Tsao. All rights reserved.</p>
-        </div>
+        &copy; 2026 Yi-Nung Tsao
     </footer>
 </body>
 

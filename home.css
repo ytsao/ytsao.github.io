@@ -1,0 +1,129 @@
+:root {
+    --text: #222;
+    --muted: #666;
+    --link: #1a5fb4;
+    --name: #1f3a68;
+    --rule: #ddd;
+    --bg: #fff;
+    --placeholder-bg: #fff8e1;
+    --placeholder-border: #e0b400;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #e4e4e4;
+        --muted: #9a9a9a;
+        --link: #78aeed;
+        --name: #9cc0f0;
+        --rule: #3a3a3a;
+        --bg: #1b1b1b;
+        --placeholder-bg: #2e2a1a;
+        --placeholder-border: #9c7d00;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Open Sans', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main,
+footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main */
+main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.name {
+    text-align: center;
+    color: var(--name);
+    margin-bottom: 32px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: normal;
+    margin: 40px 0 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.links a {
+    margin-right: 16px;
+}
+
+ul.news {
+    padding-left: 20px;
+}
+
+ul.news li {
+    margin-bottom: 6px;
+}
+
+.date {
+    color: var(--muted);
+}
+
+ol.pubs li {
+    margin-bottom: 12px;
+}
+
+.pub-title {
+    font-weight: bold;
+}
+
+.pub-venue {
+    font-style: italic;
+}
+
+/* Marks where your own text goes. Delete the class once filled in. */
+.placeholder {
+    background: var(--placeholder-bg);
+    border: 1px dashed var(--placeholder-border);
+    color: var(--muted);
+    font-style: italic;
+    padding: 2px 6px;
+}
+
+footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    padding-bottom: 32px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 26px;
+    }
+}
